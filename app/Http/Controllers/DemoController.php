@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use MemoChou1993\Lexicon\Console\ClearCommand;
 use MemoChou1993\Lexicon\Console\SyncCommand;
@@ -15,7 +16,7 @@ class DemoController extends Controller
      * Handle the incoming request.
      *
      * @param  Request  $request
-     * @return Redirector|View
+     * @return RedirectResponse|View
      */
     public function __invoke(Request $request)
     {
@@ -24,6 +25,8 @@ class DemoController extends Controller
         if (! in_array($language, ['en', 'zh'])) {
             return redirect()->route('demo');
         }
+
+        App::setLocale($language);
 
         if ($request->input('sync')) {
             Artisan::call(SyncCommand::class);
