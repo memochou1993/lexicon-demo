@@ -9,7 +9,7 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="demo">
+            <a class="navbar-brand" href="{{ config('app.url') }}">
                 {{ ___('project.name') }}
             </a>
             <div>
