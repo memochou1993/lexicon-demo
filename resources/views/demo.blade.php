@@ -120,20 +120,13 @@
 document.getElementById('sync').addEventListener('click', () => {
     document.getElementById('table').hidden = true;
     document.getElementById('loading').hidden = false;
-    setTimeout(() => {
-        document.getElementById('message').innerHTML = 'Fetching Resources...';
-    }, 0);
-    setTimeout(() => {
-        document.getElementById('message').innerHTML = 'Generating Language Files...';
-    }, 1000);
+    document.getElementById('message').innerHTML = 'Generating language files...';
 });
 
 document.getElementById('clear').addEventListener('click', () => {
     document.getElementById('table').hidden = true;
     document.getElementById('loading').hidden = false;
-    setTimeout(() => {
-        document.getElementById('message').innerHTML = 'Deleting Language Files...';
-    }, 0);
+    document.getElementById('message').innerHTML = 'Deleting language files...';
 });
 </script>
 
