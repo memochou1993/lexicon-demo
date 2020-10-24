@@ -107,10 +107,13 @@
                 @endif
             </div>
             <div class="my-5 text-center" id="loading" hidden>
-                <h5 class="py-5" id="message"></h5>
-                <div style="width: 4rem; height: 4rem;" class="spinner-grow text-warning" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
+                <h5 class="py-5" id="syncing-message" hidden>
+                    {{ ___('message.syncing') }}
+                </h5>
+                <h5 class="py-5" id="clearing-message" hidden>
+                    {{ ___('message.clearing') }}
+                </h5>
+                <div style="width: 4rem; height: 4rem;" class="spinner-grow text-warning" role="status"></div>
             </div>
         </div>
     </body>
@@ -120,13 +123,13 @@
 document.getElementById('sync').addEventListener('click', () => {
     document.getElementById('table').hidden = true;
     document.getElementById('loading').hidden = false;
-    document.getElementById('message').innerHTML = 'Generating language files...';
+    document.getElementById('syncing-message').hidden = false;
 });
 
 document.getElementById('clear').addEventListener('click', () => {
     document.getElementById('table').hidden = true;
     document.getElementById('loading').hidden = false;
-    document.getElementById('message').innerHTML = 'Deleting language files...';
+    document.getElementById('clearing-message').hidden = false;
 });
 </script>
 
