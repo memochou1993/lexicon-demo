@@ -9,24 +9,24 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{ config('app.url') }}">
+            <a class="navbar-brand" href="{{ config('app.url') }}/{{ $language }}">
                 {{ ___('project.name') }}
             </a>
             <div>
                 @if($language == 'en')
-                <button onclick="location.href='?language=zh'" class="btn btn-sm btn-outline-light ml-1">
-                    ZH
-                </button>
-                <button onclick="location.href='?language=en'" class="btn btn-sm bg-light ml-1">
+                <button onclick="location.href='/en'" class="btn btn-sm bg-light ml-1">
                     EN
+                </button>
+                <button onclick="location.href='/zh'" class="btn btn-sm btn-outline-light ml-1">
+                    ZH
                 </button>
                 @endif
                 @if($language == 'zh')
-                <button onclick="location.href='?language=zh'" class="btn btn-sm bg-light ml-1">
-                    ZH
-                </button>
-                <button onclick="location.href='?language=en'" class="btn btn-sm btn-outline-light ml-1">
+                <button onclick="location.href='/en'" class="btn btn-sm btn-outline-light ml-1">
                     EN
+                </button>
+                <button onclick="location.href='/zh'" class="btn btn-sm bg-light ml-1">
+                    ZH
                 </button>
                 @endif
             </div>
@@ -36,18 +36,18 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <span class="mr-2">
-                            <button onclick="location.href='?language={{ $language  }}&sync=true'" class="btn btn-sm btn-info my-1 my-md-0" id="sync">
+                            <button onclick="location.href='/{{ $language  }}?sync=true'" class="btn btn-sm btn-info my-1 my-md-0" id="sync">
                                 {{ ___('action.sync') }}
                             </button>
                         </span>
                         <span class="mr-2">
-                            <button onclick="location.href='?language={{ $language  }}&clear=true'" class="btn btn-sm btn-danger my-1 my-md-0" id="clear">
+                            <button onclick="location.href='/{{ $language  }}?clear=true'" class="btn btn-sm btn-danger my-1 my-md-0" id="clear">
                                 {{ ___('action.clear') }}
                             </button>
                         </span>
                         @if(count($keys))
                         <span class="mr-2">
-                            <button onclick="window.open('?language={{ $language  }}&dump=true')" class="btn btn-sm btn-secondary my-1 my-md-0">
+                            <button onclick="window.open('/{{ $language  }}?dump=true')" class="btn btn-sm btn-secondary my-1 my-md-0">
                                 {{ ___('action.dump') }}
                             </button>
                         </span>

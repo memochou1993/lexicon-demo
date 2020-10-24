@@ -16,12 +16,11 @@ class DemoController extends Controller
      * Handle the incoming request.
      *
      * @param  Request  $request
+     * @param  string  $language
      * @return RedirectResponse|View
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, string $language = 'en')
     {
-        $language = $request->input('language', 'en');
-
         if (! in_array($language, ['en', 'zh'])) {
             return redirect()->route('demo');
         }

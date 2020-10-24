@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', DemoController::class)->name('demo');
+Route::get('/{language?}', DemoController::class)->name('demo');
